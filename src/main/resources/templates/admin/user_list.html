@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>用户列表</title>
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+
+<h2>用户列表</h2>
+<table border="1">
+    <tr><th>ID</th><th>用户名</th><th>角色</th></tr>
+    <tr th:each="u : ${users}">
+        <td>[[${u.id}]]</td>
+        <td>[[${u.username}]]</td>
+        <td>[[${u.role}]]</td>
+    </tr>
+</table>
+
+</body>
+</html>

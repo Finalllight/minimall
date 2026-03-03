@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>商品表单</title>
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+
+<h2>商品表单</h2>
+
+<form method="post" th:action="@{/admin/products/save}">
+    <input type="hidden" name="id" th:value="${product.id}"/>
+    名称：<input name="name" th:value="${product.name}"><br/>
+    描述：<input name="description" th:value="${product.description}"><br/>
+    价格：<input name="price" th:value="${product.price}"><br/>
+    库存：<input name="stock" th:value="${product.stock}"><br/>
+    <button type="submit">保存</button>
+</form>
+
+</body>
+</html>

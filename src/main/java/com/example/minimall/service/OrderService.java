@@ -94,4 +94,6 @@ public class OrderService {
     public List<OrderItem> listItems(Long orderId) {
         return orderItemRepo.findByOrderId(orderId);
     }
+    public List<Order> listAll() { return orderRepo.findAll(); }
+
 }

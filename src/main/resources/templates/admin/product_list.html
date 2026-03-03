@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>商品管理</title>
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+
+<h2>商品管理</h2>
+<a th:href="@{/admin/products/new}">新增商品</a>
+
+<table border="1">
+    <tr>
+        <th>ID</th><th>名称</th><th>价格</th><th>库存</th><th>操作</th>
+    </tr>
+    <tr th:each="p : ${products}">
+        <td>[[${p.id}]]</td>
+        <td>[[${p.name}]]</td>
+        <td>[[${p.price}]]</td>
+        <td>[[${p.stock}]]</td>
+        <td>
+            <a th:href="@{'/admin/products/edit/' + ${p.id}}">编辑</a>
+            <a th:href="@{'/admin/products/delete/' + ${p.id}}">删除</a>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

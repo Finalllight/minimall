@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理首页</title>
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+
+<h2>后台管理首页</h2>
+<ul>
+    <li><a th:href="@{/admin/products}">商品管理</a></li>
+    <li><a th:href="@{/admin/users}">用户查看</a></li>
+    <li><a th:href="@{/admin/coupons}">优惠券管理</a></li>
+    <li><a th:href="@{/admin/orders}">订单查看</a></li>
+</ul>
+
+</body>
+</html>

@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
+<!-- fragments/header.html -->
+<span th:if="${currentUser != null and currentUser.role == 'ADMIN'}">
+    | <a th:href="@{/admin}">后台管理</a>
+</span>
+
 <div th:fragment="header">
     <a th:href="@{/products}">商品</a> |
     <a th:href="@{/cart}">购物车</a> |

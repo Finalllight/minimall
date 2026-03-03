@@ -5,6 +5,8 @@ import com.example.minimall.repository.UserRepository;
 import com.example.minimall.util.ValidationUtil;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserService {
     private final UserRepository userRepo;
@@ -24,7 +26,8 @@ public class UserService {
         }
         User u = new User();
         u.setUsername(username);
-        u.setPassword(password); // 简化：明文
+        u.setPassword(password);
+        u.setRole("USER");// 简化：明文
         return userRepo.save(u);
     }
 
@@ -33,4 +36,6 @@ public class UserService {
                 .filter(u -> u.getPassword().equals(password))
                 .orElse(null);
     }
+    public List<User> listAll() { return userRepo.findAll(); }
+
 }

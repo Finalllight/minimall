@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>优惠券表单</title>
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+
+<h2>优惠券表单</h2>
+
+<form method="post" th:action="@{/admin/coupons/save}">
+    <input type="hidden" name="id" th:value="${coupon.id}"/>
+
+    用户：
+    <select name="userId">
+        <option th:each="u : ${users}"
+                th:value="${u.id}"
+                th:text="${u.username}"
+                th:selected="${coupon.userId == u.id}">
+        </option>
+    </select>
+    <br/>
+
+    类型：
+    <select name="type">
+        <option th:each="t : ${types}"
+                th:value="${t}"
+                th:text="${t}"
+                th:selected="${coupon.type == t}">
+        </option>
+    </select>
+    <br/>
+
+    门槛：<input name="threshold" th:value="${coupon.threshold}"><br/>
+    额度：<input name="amount" th:value="${coupon.amount}"><br/>
+    数量：<input name="quantity" th:value="${coupon.quantity}"><br/>
+
+    <button type="submit">保存</button>
+</form>
+
+</body>
+</html>

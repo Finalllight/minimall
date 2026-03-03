@@ -12,7 +12,7 @@ public class User {
 
     private String username;
     private String password;
-
+    private String role;
     public User() {
     }
 
@@ -20,6 +20,7 @@ public class User {
         this.id = id;
         this.username = username;
         this.password = password;
+        this.role = "USER";
     }
 
     // ===== getter / setter =====
@@ -45,5 +46,11 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+    public void setRole(String role) {
+        this.role = role;
+    }
+    public String getRole() {
+        return role;
     }
 }

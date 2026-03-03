@@ -18,6 +18,8 @@ public class CouponService {
     public Coupon getById(Long id) {
         return couponRepo.findById(id).orElse(null);
     }
+    public List<Coupon> listAll() { return couponRepo.findAll(); }
+    public void deleteById(Long id) { couponRepo.deleteById(id); }
 
     public void save(Coupon c) { couponRepo.save(c); }
 }
