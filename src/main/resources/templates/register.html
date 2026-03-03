@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:replace="fragments/header :: header"></div>
+<h2>注册</h2>
+<form method="post" th:action="@{/register}">
+    用户名：<input name="username"><br/>
+    密码：<input name="password" type="password"><br/>
+    <button type="submit">注册</button>
+</form>
+<p style="color:red" th:if="${error}" th:text="${error}"></p>
+</body>
+</html>

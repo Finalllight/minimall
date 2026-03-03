@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:replace="fragments/header :: header"></div>
+<h2>结算</h2>
+
+<p>订单总价：[[${total}]]</p>
+
+<form method="post" th:action="@{/orders/submit}">
+    选择优惠券：
+    <select name="couponId">
+        <option value="">不使用优惠券</option>
+        <option th:each="c : ${coupons}"
+                th:value="${c.id}"
+                th:text="${c.display}">
+        </option>
+    </select>
+    <br/>
+    <button type="submit">提交订单</button>
+</form>
+</body>
+</html>

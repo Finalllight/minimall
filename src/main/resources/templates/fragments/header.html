@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="header">
+    <a th:href="@{/products}">商品</a> |
+    <a th:href="@{/cart}">购物车</a> |
+    <a th:href="@{/orders}">我的订单</a>
+
+    <span th:if="${currentUser == null}">
+        | <a th:href="@{/login}">登录</a>
+        <a th:href="@{/register}">注册</a>
+    </span>
+    <span th:if="${currentUser != null}">
+        | 你好，[[${currentUser.username}]]
+        <a th:href="@{/logout}">退出</a>
+    </span>
+    <hr/>
+</div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:replace="fragments/header :: header"></div>
+<h2>我的订单</h2>
+
+<table border="1">
+    <tr><th>订单号</th><th>总价</th><th>实付</th><th>时间</th></tr>
+    <tr th:each="o : ${orders}">
+        <td><a th:href="@{'/orders/' + ${o.id}}">[[${o.id}]]</a></td>
+        <td>[[${o.totalAmount}]]</td>
+        <td>[[${o.payAmount}]]</td>
+        <td>[[${o.createdTime}]]</td>
+    </tr>
+</table>
+</body>
+</html>
