@@ -4,10 +4,13 @@
 <div th:replace="fragments/header :: header"></div>
 <h2>注册</h2>
 <form method="post" th:action="@{/register}">
-    用户名：<input name="username"><br/>
-    密码：<input name="password" type="password"><br/>
+    用户名：
+    <input name="username" placeholder="4-16位字母/数字"><br/>
+    密码：
+    <input name="password" type="password" placeholder="至少8位，含大小写字母+数字+特殊字符"><br/>
     <button type="submit">注册</button>
 </form>
+
 <p style="color:red" th:if="${error}" th:text="${error}"></p>
 </body>
 </html>
