@@ -5,6 +5,8 @@
 <h2>结算</h2>
 
 <p>订单总价：[[${total}]]</p>
+<p>账户余额：[[${currentUser.balance}]]</p>
+<p style="color:red" th:if="${error}" th:text="${error}"></p>
 
 <form method="post" th:action="@{/orders/submit}">
     选择优惠券：

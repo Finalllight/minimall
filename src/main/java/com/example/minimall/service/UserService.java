@@ -5,6 +5,7 @@ import com.example.minimall.repository.UserRepository;
 import com.example.minimall.util.ValidationUtil;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -28,6 +29,7 @@ public class UserService {
         u.setUsername(username);
         u.setPassword(password);
         u.setRole("USER");// 简化：明文
+        u.setBalance(new BigDecimal("88888.00"));
         return userRepo.save(u);
     }
 
@@ -38,4 +40,13 @@ public class UserService {
     }
     public List<User> listAll() { return userRepo.findAll(); }
 
+    public User getById(Long id) {
+        return userRepo.findById(id).orElse(null);
+    }
+    public void updateBalance(Long userId, BigDecimal balance) {
+        userRepo.findById(userId).ifPresent(u -> {
+            u.setBalance(balance);
+            userRepo.save(u);
+        });
+    }
 }

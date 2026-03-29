@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>修改用户余额 - 后台管理</title>
+</head>
+<body>
+
+<!-- 顶部导航 -->
+<div th:replace="fragments/header :: header"></div>
+
+<h2>修改用户余额</h2>
+
+<p><a th:href="@{/admin/users}">&laquo; 返回用户列表</a></p>
+
+<form method="post" th:action="@{/admin/users/updateBalance}">
+    <!-- 隐藏字段：用户ID -->
+    <input type="hidden" name="id" th:value="${user.id}"/>
+
+    <table border="1" cellpadding="6">
+        <tr>
+            <td>用户ID</td>
+            <td th:text="${user.id}"></td>
+        </tr>
+        <tr>
+            <td>用户名</td>
+            <td>
+                <!-- 只读，不允许在此修改用户名 -->
+                <input type="text" th:value="${user.username}" readonly
+                       style="background:#eee; border:1px solid #ccc;"/>
+            </td>
+        </tr>
+        <tr>
+            <td>角色</td>
+            <td th:text="${user.role}"></td>
+        </tr>
+        <tr>
+            <td>当前余额</td>
+            <td style="color:gray;" th:text="${user.balance}"></td>
+        </tr>
+        <tr>
+            <td>新余额</td>
+            <td>
+                <input type="number"
+                       name="balance"
+                       th:value="${user.balance}"
+                       step="0.01"
+                       min="0"
+                       required/>
+            </td>
+        </tr>
+    </table>
+
+    <br/>
+    <button type="submit">保存</button>
+    <a th:href="@{/admin/users}" style="margin-left:10px;">取消</a>
+</form>
+
+</body>
+</html>

@@ -9,13 +9,16 @@
 
 <h2>用户列表</h2>
 <table border="1">
-    <tr><th>ID</th><th>用户名</th><th>角色</th></tr>
+    <tr><th>ID</th><th>用户名</th><th>角色</th><th>余额</th><th>操作</th></tr>
     <tr th:each="u : ${users}">
         <td>[[${u.id}]]</td>
         <td>[[${u.username}]]</td>
         <td>[[${u.role}]]</td>
+        <td>[[${u.balance}]]</td>
+        <td><a th:href="@{'/admin/users/edit/' + ${u.id}}">修改余额</a></td>
     </tr>
 </table>
+
 
 </body>
 </html>

@@ -2,6 +2,8 @@ package com.example.minimall.entity;
 
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
+
 @Entity
 @Table(name = "users") // user 在某些数据库中是关键字
 public class User {
@@ -13,6 +15,7 @@ public class User {
     private String username;
     private String password;
     private String role;
+    private BigDecimal balance;
     public User() {
     }
 
@@ -52,5 +55,13 @@ public class User {
     }
     public String getRole() {
         return role;
+    }
+
+    public void setBalance(BigDecimal bigDecimal) {
+        this.balance = bigDecimal;
+    }
+
+    public BigDecimal getBalance() {
+        return balance;
     }
 }
