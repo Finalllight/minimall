@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${pageTitle} ?: 'Minimall'">Minimall</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <div th:replace="fragments/header :: header"></div>
+    
+    <!-- 主要内容区域 -->
+    <main class="main-content">
+        <div class="container">
+            <div th:if="${pageTitle}" class="mb-5">
+                <h1 class="card-title" th:text="${pageTitle}"></h1>
+            </div>
+            <div th:insert="${content} ?: ~{::content}">
+                <!-- 页面特定内容将插入这里 -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">内容标题</h2>
+                    </div>
+                    <div class="card-body">
+                        <p>页面内容将在这里显示。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- 页脚 -->
+    <footer class="footer" th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>
